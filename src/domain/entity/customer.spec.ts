@@ -25,7 +25,7 @@ describe("Customer", () => {
         //Arrange 
         const customer = new Customer("123", "John Doe");
         const address = new Address("Street", "123", "City", "State", "Zip");
-        customer.setAddress(address);
+        customer.changeAddress(address);
 
         //Act
         customer.activate();

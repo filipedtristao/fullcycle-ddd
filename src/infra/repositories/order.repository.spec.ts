@@ -30,7 +30,7 @@ describe('OrderRepository', () => {
         const id = v4();
         const customer = new Customer(`c${id}`, 'Customer 1');
 
-        customer.setAddress(new Address('Street 1', '1', 'City 1', 'State 1', 'Zip 1'));
+        customer.changeAddress(new Address('Street 1', '1', 'City 1', 'State 1', 'Zip 1'));
 
         await customerRepository.create(customer);
 

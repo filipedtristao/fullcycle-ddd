@@ -28,7 +28,7 @@ describe('CustomerRepository', () => {
         const customer = new Customer('c1', 'Customer 1');
         const address = new Address('Street 1', '1', 'City 1', 'State 1', 'Zip 1');
 
-        customer.setAddress(address);
+        customer.changeAddress(address);
 
         await customerRepository.create(customer);
 
@@ -51,7 +51,7 @@ describe('CustomerRepository', () => {
         const customerRepository = new CustomerRepository();
         const customer = new Customer('c1', 'Customer 1');
 
-        customer.setAddress(new Address('Street 1', '1', 'City 1', 'State 1', 'Zip 1'));
+        customer.changeAddress(new Address('Street 1', '1', 'City 1', 'State 1', 'Zip 1'));
 
         await customerRepository.create(customer);
 
@@ -71,7 +71,7 @@ describe('CustomerRepository', () => {
 
         customer.changeName('Customer 1 Updated');
         customer.deactivate();
-        customer.setAddress(new Address('Street 1 Updated', '1 Updated', 'City 1 Updated', 'State 1 Updated', 'Zip 1 Updated'));
+        customer.changeAddress(new Address('Street 1 Updated', '1 Updated', 'City 1 Updated', 'State 1 Updated', 'Zip 1 Updated'));
 
         await customerRepository.update(customer);
 
@@ -93,7 +93,7 @@ describe('CustomerRepository', () => {
     it('should find a customer by id', async () => {
         const customerRepository = new CustomerRepository();
         const customer = new Customer('c1', 'Customer 1');
-        customer.setAddress(new Address('Street 1', '1', 'City 1', 'State 1', 'Zip 1'));
+        customer.changeAddress(new Address('Street 1', '1', 'City 1', 'State 1', 'Zip 1'));
 
         await customerRepository.create(customer);
 
@@ -105,9 +105,10 @@ describe('CustomerRepository', () => {
     it('should find all products', async () => {
         const customerRepository = new CustomerRepository();
         const customer1 = new Customer('c1', 'Customer 1');
-        customer1.setAddress(new Address('Street 1', '1', 'City 1', 'State 1', 'Zip 1'));
         const customer2 = new Customer('c2', 'Customer 2');
-        customer2.setAddress(new Address('Street 2', '2', 'City 2', 'State 2', 'Zip 2'));
+
+        customer1.changeAddress(new Address('Street 1', '1', 'City 1', 'State 1', 'Zip 1'));
+        customer2.changeAddress(new Address('Street 2', '2', 'City 2', 'State 2', 'Zip 2'));
 
         await customerRepository.create(customer1);
         await customerRepository.create(customer2);

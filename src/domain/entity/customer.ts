@@ -44,6 +44,10 @@ export default class Customer {
         this.name = name;
     }
 
+    changeAddress(address: Address) {
+        this.address = address;
+    }
+
     isActive() {
         return this.active;
     }
@@ -66,9 +70,5 @@ export default class Customer {
 
     getRewardPoints() {
         return this.rewardPoints;
-    }
-
-    setAddress(address: Address) {
-        this.address = address;
     }
 }

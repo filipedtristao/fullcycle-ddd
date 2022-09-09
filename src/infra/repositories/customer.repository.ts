@@ -43,7 +43,7 @@ export default class CustomerRepository implements CustomerRepositoryInterface {
             const address = new Address(customerModel.street, customerModel.number, customerModel.city, customerModel.state, customerModel.zip);
 
             customer.addRewardPoints(customerModel.rewardPoints);
-            customer.setAddress(address);
+            customer.changeAddress(address);
 
             if (customerModel.active) {
                 customer.activate();
@@ -66,7 +66,7 @@ export default class CustomerRepository implements CustomerRepositoryInterface {
         const address = new Address(customerModel.street, customerModel.number, customerModel.city, customerModel.state, customerModel.zip);
 
         customer.addRewardPoints(customerModel.rewardPoints);
-        customer.setAddress(address);
+        customer.changeAddress(address);
 
         if (customerModel.active) {
             customer.activate();
